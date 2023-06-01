@@ -15,12 +15,12 @@ class UiMainWindow(object):
         # configurando frame central da aplicação
         self.central_frame = QFrame()
 
-        # CRIANDO O LAYOUT PRINCIPAL DA APLICAÇÃO
+        # CRIANDO O LAYOUT PRINCIPAL DA APLICAÇÃO =========================================
         self.main_layout = QHBoxLayout(self.central_frame)
         self.main_layout.setContentsMargins(0,0,0,0)
         self.main_layout.setSpacing(0)
 
-        # menu lateral
+        # LEFT MENU =======================================================================
         self.left_menu = QFrame()
         self.left_menu.setStyleSheet("background-color: #1E830E")
         self.left_menu.setMaximumWidth(50)
@@ -57,11 +57,11 @@ class UiMainWindow(object):
         self.left_menu_layout.addWidget(self.left_menu_bottom_frame)
         self.left_menu_layout.addWidget(self.label_version)
 
-        # conteudo da aplicação
+        # CONTENT =============================================================================
         self.content = QFrame()
         self.content.setStyleSheet("background-color: #F3F2F2")
 
-        # criando top bar
+        # CONTENT TOP BAR
         self.top_bar = QFrame()
         self.top_bar.setStyleSheet("background-color: #A2FD94; color: #56AB49")
         self.top_bar.setMinimumHeight(30)
@@ -69,27 +69,27 @@ class UiMainWindow(object):
         self.top_bar_layout = QHBoxLayout(self.top_bar)
         self.top_bar_layout.setContentsMargins(10,0,10,0)
 
-        # left label
+        # TOP BAR - LEFT LABEL
         self.text_label_left = QLabel("Registro e acompanhamento PM")
 
-        # top spacer
+        # TOP BAR - SPACER
         self.top_spacer = QSpacerItem(20,20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        # right label
+        # TOP BAR - RIGHT LABEL
         self.text_label_right = QLabel("| PÁGINA INICIAL")
         self.text_label_right.setStyleSheet("font: 700 9pt 'Segoe UI'")
 
-        # add to layout top bar
+        # TOP BAR LAYOUT
         self.top_bar_layout.addWidget(self.text_label_left)
         self.top_bar_layout.addItem(self.top_spacer)
         self.top_bar_layout.addWidget(self.text_label_right)
 
-        # layout do conteudo
+        # CONTENT LAYOUT
         self.content_layout = QVBoxLayout(self.content)
         self.content_layout.setContentsMargins(0,0,0,0)
         self.content_layout.setSpacing(0)
 
-        # criando footer
+        # FOOTER =============================================================================
         self.footer = QFrame()
         self.footer.setStyleSheet("background-color: #A2FD94; color: #56AB49")
         self.footer.setMinimumHeight(30)
@@ -97,35 +97,35 @@ class UiMainWindow(object):
         self.footer_layout = QHBoxLayout(self.footer)
         self.footer_layout.setContentsMargins(10,0,10,0)
 
-        # left label
+        # FOOTER - LEFT LABEL
         self.footer_label_left = QLabel("Criado por: Paulo Jonas Alves da Silva - 3ºSgt PM")
 
-        # top spacer
+        # FOORTER - SPACER
         self.footer_spacer = QSpacerItem(20,20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        # right label
+        # FOOTER - RIGHT LABEL
         self.footer_label_right = QLabel("¢ 2023")
 
-        # add to layout top bar
+        # FOOTER LAYOUT
         self.footer_layout.addWidget(self.footer_label_left)
         self.footer_layout.addItem(self.footer_spacer)
         self.footer_layout.addWidget(self.footer_label_right)
 
-        # paginas da aplicação
+        # APPLICATION PAGES ================================================================
         self.pages = QStackedWidget()
         self.pages.setStyleSheet("font-size: 12pt; color: #083600")
         self.ui_pages = Ui_application_pages()
         self.ui_pages.setupUi(self.pages)
 
-        # adicionando top bar ao layout de conteudo
+        # ADD WIDGETS CONTENT LAYOUT =======================================================
         self.content_layout.addWidget(self.top_bar)
         self.content_layout.addWidget(self.pages)
         self.content_layout.addWidget(self.footer)
 
 
-        # adicionando widgets ao frame central
+        # ADD WIDGETS CENTRAL FRAME ========================================================
         self.main_layout.addWidget(self.left_menu)
         self.main_layout.addWidget(self.content)
 
-        # definindo frame principal da aplicação
+        # SET CENTRAL FRAME ================================================================
         parent.setCentralWidget(self.central_frame)
