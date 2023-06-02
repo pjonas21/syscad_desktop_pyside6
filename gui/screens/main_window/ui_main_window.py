@@ -2,6 +2,9 @@ from qt_core import *
 
 from gui.pages.ui_pages import Ui_application_pages
 
+# IMPORT CUSTOM WIDGETS
+from gui.widgets.py_push_button import PyPushButton
+
 
 class UiMainWindow(object):
     def setup_ui(self, parent):
@@ -43,9 +46,9 @@ class UiMainWindow(object):
         self.left_menu_top_layout.setSpacing(0)
 
         # TOP BUTTONS MENU
-        self.toggle_button = QPushButton("Toggle")
-        self.btn_home = QPushButton("Início")
-        self.btn_colab = QPushButton("Colaboradores")
+        self.toggle_button = PyPushButton(text="Ocultar menu", icon_path="menu.svg")
+        self.btn_home = PyPushButton(text="Página inicial", is_active=True, icon_path="home.svg")
+        self.btn_colab = PyPushButton(text="Funcionários", icon_path="lists.svg")
 
         # ADD BUTTONS TO MENU TOP LAYOUT
         self.left_menu_top_layout.addWidget(self.toggle_button)
@@ -57,7 +60,7 @@ class UiMainWindow(object):
 
         # BOTTOM FRAME MENU
         self.left_menu_bottom_frame = QFrame()
-        self.left_menu_bottom_frame.setMinimumHeight(50)
+        self.left_menu_bottom_frame.setMinimumHeight(40)
 
         # LAYOUT MENU BOTTOM FRAME
         self.left_menu_bottom_layout = QVBoxLayout(self.left_menu_bottom_frame)
@@ -65,7 +68,7 @@ class UiMainWindow(object):
         self.left_menu_bottom_layout.setSpacing(0)
 
         # BOTTOM BUTTONS MENU
-        self.btn_settings = QPushButton("Config")
+        self.btn_settings = PyPushButton(text="Configurações", icon_path="settings.svg")
 
         # ADD BUTTONS TO MENU BOTTOM LAYOUT
         self.left_menu_bottom_layout.addWidget(self.btn_settings)
