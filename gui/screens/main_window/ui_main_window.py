@@ -72,7 +72,7 @@ class UiMainWindow(object):
 
         # LABEL VERSION APP
         self.label_version = QLabel("v1.0.0")
-        self.label_version.setStyleSheet("color: #F3F2F2")
+        self.label_version.setStyleSheet("background-color: #56AB49; color: #F3F2F2")
         self.label_version.setAlignment(Qt.AlignCenter)
         self.label_version.setMinimumHeight(30)
         self.label_version.setMaximumHeight(30)
